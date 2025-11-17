@@ -333,5 +333,14 @@ public class StudentAttendanceService {
 		// 完了メッセージ
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
+	
+	public Integer getUnenteredCount(Integer lmsUserId, Date trainingDate, Short deleteFlg) {
+		return tStudentAttendanceMapper.dateCount(lmsUserId, trainingDate, deleteFlg);
+	}
+	
+	public boolean showUnenteredDialog(Integer lmsUserId, Date trainingDate, Short deleteFlg) {
+		Integer count = getUnenteredCount(lmsUserId, trainingDate, deleteFlg);
+		return count != null && count > 0;
+	}
 
 }

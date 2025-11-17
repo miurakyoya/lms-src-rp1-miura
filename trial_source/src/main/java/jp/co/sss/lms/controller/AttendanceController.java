@@ -143,5 +143,11 @@ public class AttendanceController {
 
 		return "attendance/detail";
 	}
+	
+//	@RequestMapping(path="/detail")
+//	public String showAttendanceDialog(@RequestParam("lmsUserId") Integer lmsUserId, Model model) {
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//		Date trainingDate =  attendanceUtil.getTrainingDate();
+//	}
 
 }

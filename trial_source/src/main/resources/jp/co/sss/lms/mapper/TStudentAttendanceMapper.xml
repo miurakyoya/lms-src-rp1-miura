@@ -86,7 +86,7 @@
 		WHERE student_attendance_id = #{studentAttendanceId}
 	</update>
 	
-	<select id="dateCount" resultType="jp.co.sss.lms.entity.TStudentAttendance">
+	<select id="dateCount" resultType="java.lang.Integer">
 		SELECT COUNT(*)
 		FROM t_student_attendance
 		WHERE lms_user_id = #{lmsUserId}

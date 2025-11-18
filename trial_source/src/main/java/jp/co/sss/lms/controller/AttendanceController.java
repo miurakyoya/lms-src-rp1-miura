@@ -1,14 +1,17 @@
 package jp.co.sss.lms.controller;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.sss.lms.dto.AttendanceManagementDto;
 import jp.co.sss.lms.dto.LoginUserDto;
@@ -144,10 +147,17 @@ public class AttendanceController {
 		return "attendance/detail";
 	}
 	
-//	@RequestMapping(path="/detail")
-//	public String showAttendanceDialog(@RequestParam("lmsUserId") Integer lmsUserId, Model model) {
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//		Date trainingDate =  attendanceUtil.getTrainingDate();
-//	}
+	public AttendanceController(StudentAttendanceService studentAttendanceService) {
+		this.studentAttendanceService = studentAttendanceService;
+	}
+	
+	@RequestMapping(path="/detail")
+	public String showAttendanceDialog(@RequestParam("lmsUserId") Integer lmsUserId, @RequestParam("trainingDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date trainingDate,
+			@RequestParam("deleteFlg") Short deleteFlg, Model model) {
+		
+		boolean result = studentAttendanceService.showUnenteredDialog(lmsUserId, trainingDate, deleteFlg);
+		model.addAttribute("result", true);
+		return "attendance/detail";
+	}
 
 }

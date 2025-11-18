@@ -342,5 +342,5 @@ public class StudentAttendanceService {
 		Integer count = getUnenteredCount(lmsUserId, trainingDate, deleteFlg);
 		return count != null && count > 0;
 	}
-
+	
 }

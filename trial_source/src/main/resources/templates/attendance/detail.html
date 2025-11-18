@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
+<html xmlns:th="http://www.thymeleaf.org"  th:inline="javascript"
 	th:replace="~{/common/layout :: layout(~{::title},~{::body/content()})}">
 <head>
 <meta charset="UTF-8">
 <title>勤怠情報変更｜LMS</title>
-<script th:src="@{/js/Attendance.js}" type="text/javascript"></script>
+
 </head>
 <body>
+  <script th:inline="javascript">
+    const result = /*[[${result}]]*/ false;
+    if (result) {
+      alert("過去日の勤怠に未入力があります。");
+    }
+  </script>
+
 
 	<!-- 完了メッセージ -->
 	<th:block th:if="${not #strings.isEmpty(message)}" id="message">

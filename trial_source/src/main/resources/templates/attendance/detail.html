@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  th:inline="javascript"
+<html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/common/layout :: layout(~{::title},~{::body/content()})}">
 <head>
 <meta charset="UTF-8">
@@ -7,12 +7,13 @@
 
 </head>
 <body>
-  <script th:inline="javascript">
+	<!-- 三浦追記 Task25 -->
+  	<script type="text/javascript" th:inline="javascript">
     const result = /*[[${result}]]*/ false;
     if (result) {
       alert("過去日の勤怠に未入力があります。");
     }
-  </script>
+  	</script>
 
 
 	<!-- 完了メッセージ -->

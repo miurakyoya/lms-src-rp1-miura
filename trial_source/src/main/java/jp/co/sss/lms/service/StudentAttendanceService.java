@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -334,13 +335,30 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 	
-	public Integer getUnenteredCount(Integer lmsUserId, Date trainingDate, Short deleteFlg) {
-		return tStudentAttendanceMapper.dateCount(lmsUserId, trainingDate, deleteFlg);
+	public Integer getUnenteredCount(Integer lmsUserId, Short deleteFlg,  Date trainingDate) {
+		return tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
 	}
+	/**
+	 * 過去日の未入力件数から判定
+	 * @author 三浦 Task25
+	 * @param lmsUserId
+	 * @return 判定結果
+	 */
+	public boolean showUnenteredDialog(Integer lmsUserId) {
+	    // 現在日付を取得してフォーマット
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    String formattedDate = sdf.format(new Date());
+	    // 文字列をDateに戻す
+	    try {
+	        Date parsedDate = sdf.parse(formattedDate);
+	        Integer count = getUnenteredCount(lmsUserId,Constants.DB_FLG_FALSE, parsedDate);
+	        return count != null && count > 0;
+	    } catch (ParseException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+
 	
-	public boolean showUnenteredDialog(Integer lmsUserId, Date trainingDate, Short deleteFlg) {
-		Integer count = getUnenteredCount(lmsUserId, trainingDate, deleteFlg);
-		return count != null && count > 0;
 	}
 	
 }

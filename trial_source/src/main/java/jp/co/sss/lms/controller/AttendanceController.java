@@ -1,17 +1,14 @@
 package jp.co.sss.lms.controller;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.sss.lms.dto.AttendanceManagementDto;
 import jp.co.sss.lms.dto.LoginUserDto;
@@ -49,6 +46,11 @@ public class AttendanceController {
 		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
+		
+		// 三浦追記 Task25
+	    // 未入力ダイアログ表示判定（サービスクラスのメソッドを使用）
+	    boolean showDialog = studentAttendanceService.showUnenteredDialog(loginUserDto.getLmsUserId());
+	    model.addAttribute("result", showDialog);
 
 		return "attendance/detail";
 	}
@@ -144,19 +146,6 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
-		return "attendance/detail";
-	}
-	
-	public AttendanceController(StudentAttendanceService studentAttendanceService) {
-		this.studentAttendanceService = studentAttendanceService;
-	}
-	
-	@RequestMapping(path="/detail")
-	public String showAttendanceDialog(@RequestParam("lmsUserId") Integer lmsUserId, @RequestParam("trainingDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date trainingDate,
-			@RequestParam("deleteFlg") Short deleteFlg, Model model) {
-		
-		boolean result = studentAttendanceService.showUnenteredDialog(lmsUserId, trainingDate, deleteFlg);
-		model.addAttribute("result", true);
 		return "attendance/detail";
 	}
 

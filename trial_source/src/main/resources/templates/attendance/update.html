@@ -49,7 +49,18 @@
 								</th:block>
 								<td class="w140">[[${dailyAttendanceForm.dispTrainingDate}]]</td>
 								<td class="w300">[[${dailyAttendanceForm.sectionName}]]</td>
-								<td class="w60"><input type="button" class="btn btn-success default-button" value="定時" /></td>
+								<!-- 三浦 - Task28定時ボタン -->
+								<td class="w60">
+									<input type="button" th:onclick="|sendTime(${stat.index})|" class="btn btn-success default-button" value="定時" /></td>
+									<script>
+										function sendTime(index) {
+											const startInput = document.querySelector(`[name='attendanceList[${index}].trainingStartTime']`);
+											const endInput   = document.querySelector(`[name='attendanceList[${index}].trainingEndTime']`);
+											
+											startInput.value = "09:00";
+											endInput.value   = "18:00";
+										}
+									</script>
 								<td class="w70">
 									<input type="text" th:name="|attendanceList[${stat.index}].trainingStartTime|"
 									th:value="${dailyAttendanceForm.trainingStartTime}" class="form-control" />

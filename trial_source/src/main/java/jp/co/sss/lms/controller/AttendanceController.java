@@ -47,10 +47,10 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 		
-		// 三浦追記 Task25
+		// 三浦 - Task25
 	    // 未入力ダイアログ表示判定（サービスクラスのメソッドを使用）
-	    boolean showDialog = studentAttendanceService.showUnenteredDialog(loginUserDto.getLmsUserId());
-	    model.addAttribute("result", showDialog);
+	    boolean result = studentAttendanceService.checkCount(loginUserDto.getLmsUserId());
+	    model.addAttribute("result", result);
 
 		return "attendance/detail";
 	}

@@ -344,7 +344,7 @@ public class StudentAttendanceService {
 	 * @param lmsUserId
 	 * @return 判定結果
 	 */
-	public boolean showUnenteredDialog(Integer lmsUserId) {
+	public boolean checkCount(Integer lmsUserId) {
 	    // 現在日付を取得してフォーマット
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	    String formattedDate = sdf.format(new Date());

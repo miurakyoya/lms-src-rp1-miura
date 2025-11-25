@@ -62,8 +62,101 @@
 										}
 									</script>
 								<td class="w70">
-									<input type="text" th:name="|attendanceList[${stat.index}].trainingStartTime|"
-									th:value="${dailyAttendanceForm.trainingStartTime}" class="form-control" />
+									<select class="form-control" errorStyleClass="form-control errorInput"
+									 name="|attendanceList[${stat.index}].trainingStartTime|" property="trainingStartTimeHh" indexed="true">
+										<option value="" inlne="text" class="form-control"></option>
+										<option value="0" inlne="text" class="form-control">00</option>
+										<option value="1" inlne="text" class="form-control">01</option>
+										<option value="2" inlne="text" class="form-control">02</option>
+										<option value="3" inlne="text" class="form-control">03</option>
+										<option value="4" inlne="text" class="form-control">04</option>
+										<option value="5" inlne="text" class="form-control">05</option>
+										<option value="6" inlne="text" class="form-control">06</option>
+										<option value="7" inlne="text" class="form-control">07</option>
+										<option value="8" inlne="text" class="form-control">08</option>
+										<option value="9" inlne="text" class="form-control">09</option>
+										<option value="10" inlne="text" class="form-control">10</option>
+										<option value="11" inlne="text" class="form-control">11</option>
+										<option value="12" inlne="text" class="form-control">12</option>
+										<option value="13" inlne="text" class="form-control">13</option>
+										<option value="14" inlne="text" class="form-control">14</option>
+										<option value="15" inlne="text" class="form-control">15</option>
+										<option value="16" inlne="text" class="form-control">16</option>
+										<option value="17" inlne="text" class="form-control">17</option>
+										<option value="18" inlne="text" class="form-control">18</option>
+										<option value="19" inlne="text" class="form-control">19</option>
+										<option value="20" inlne="text" class="form-control">20</option>
+										<option value="21" inlne="text" class="form-control">21</option>
+										<option value="22" inlne="text" class="form-control">22</option>
+										<option value="23" inlne="text" class="form-control">23</option>
+									</select>
+								</td>
+								<td>:</td>
+								<td>
+									<select class="form-control" errorStyleClass="form-control errorInput"
+									name="|attendanceList[${stat.index}].trainingStartTime|" property="trainingStartTimeMi" indexed="true">
+										<option value="" inlne="text" class="form-control"></option>
+										<option value="0" inlne="text" class="form-control">00</option>
+										<option value="1" inlne="text" class="form-control">01</option>
+										<option value="2" inlne="text" class="form-control">02</option>
+										<option value="3" inlne="text" class="form-control">03</option>
+										<option value="4" inlne="text" class="form-control">04</option>
+										<option value="5" inlne="text" class="form-control">05</option>
+										<option value="6" inlne="text" class="form-control">06</option>
+										<option value="7" inlne="text" class="form-control">07</option>
+										<option value="8" inlne="text" class="form-control">08</option>
+										<option value="9" inlne="text" class="form-control">09</option>
+										<option value="10" inlne="text" class="form-control">10</option>
+										<option value="11" inlne="text" class="form-control">11</option>
+										<option value="12" inlne="text" class="form-control">12</option>
+										<option value="13" inlne="text" class="form-control">13</option>
+										<option value="14" inlne="text" class="form-control">14</option>
+										<option value="15" inlne="text" class="form-control">15</option>
+										<option value="16" inlne="text" class="form-control">16</option>
+										<option value="17" inlne="text" class="form-control" selected="selected">17</option>
+										<option value="18" inlne="text" class="form-control">18</option>
+										<option value="19" inlne="text" class="form-control">19</option>
+										<option value="20" inlne="text" class="form-control">20</option>
+										<option value="21" inlne="text" class="form-control">21</option>
+										<option value="22" inlne="text" class="form-control">22</option>
+										<option value="23" inlne="text" class="form-control">23</option>
+										<option value="24" inlne="text" class="form-control">24</option>
+										<option value="25" inlne="text" class="form-control">25</option>
+										<option value="26" inlne="text" class="form-control">26</option>
+										<option value="27" inlne="text" class="form-control">27</option>
+										<option value="28" inlne="text" class="form-control">28</option>
+										<option value="29" inlne="text" class="form-control">29</option>
+										<option value="30" inlne="text" class="form-control">30</option>
+										<option value="31" inlne="text" class="form-control">31</option>
+										<option value="32" inlne="text" class="form-control">32</option>
+										<option value="33" inlne="text" class="form-control">33</option>
+										<option value="34" inlne="text" class="form-control">34</option>
+										<option value="35" inlne="text" class="form-control">35</option>
+										<option value="36" inlne="text" class="form-control">36</option>
+										<option value="37" inlne="text" class="form-control">37</option>
+										<option value="38" inlne="text" class="form-control">38</option>
+										<option value="39" inlne="text" class="form-control">39</option>
+										<option value="40" inlne="text" class="form-control">40</option>
+										<option value="41" inlne="text" class="form-control">41</option>
+										<option value="42" inlne="text" class="form-control">42</option>
+										<option value="43" inlne="text" class="form-control">43</option>
+										<option value="44" inlne="text" class="form-control">44</option>
+										<option value="45" inlne="text" class="form-control">45</option>
+										<option value="46" inlne="text" class="form-control">46</option>
+										<option value="47" inlne="text" class="form-control">47</option>
+										<option value="48" inlne="text" class="form-control">48</option>
+										<option value="49" inlne="text" class="form-control">49</option>
+										<option value="50" inlne="text" class="form-control">50</option>
+										<option value="51" inlne="text" class="form-control">51</option>
+										<option value="52" inlne="text" class="form-control">52</option>
+										<option value="53" inlne="text" class="form-control">53</option>
+										<option value="54" inlne="text" class="form-control">54</option>
+										<option value="55" inlne="text" class="form-control">55</option>
+										<option value="56" inlne="text" class="form-control">56</option>
+										<option value="57" inlne="text" class="form-control">57</option>
+										<option value="58" inlne="text" class="form-control">58</option>
+										<option value="59" inlne="text" class="form-control">59</option>
+									</select>
 								</td>
 								<td class="w70">
 									<input type="text" th:name="|attendanceList[${stat.index}].trainingEndTime|"
